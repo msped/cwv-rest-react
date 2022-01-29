@@ -39,3 +39,12 @@ class VehicleSerializer(serializers.ModelSerializer):
             'price',
             'images'
         ]
+
+class VehicleStateSerializer(serializers.ModelSerializer):
+    state = serializers.CharField(
+        source="get_car_state_display"
+    )
+
+    class Meta:
+        model = Vehicle
+        fields = ['id', 'state']
