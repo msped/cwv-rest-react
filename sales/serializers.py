@@ -13,6 +13,18 @@ class VehicleImagesSerializer(serializers.ModelSerializer):
 
 class VehicleSerializer(serializers.ModelSerializer):
     images = serializers.SerializerMethodField()
+    reserved = serializers.CharField(
+        source="get_reserved_display"
+    )
+    car_state = serializers.CharField(
+        source="get_car_state_display"
+    )
+    fuel = serializers.CharField(
+        source="get_fuel_display"
+    )
+    body_type = serializers.CharField(
+        source="get_body_type_display"
+    )
 
     def get_images(self, obj):
         images = VehicleImages.objects.filter(vehicle_id=obj.id)
