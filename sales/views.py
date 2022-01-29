@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .models import Vehicle
-from .serializers import VehicleSerializer
+from .serializers import VehicleSerializer, VehicleStateSerializer
 
 # Create your views here.
 
@@ -13,4 +13,9 @@ class VehicleDetail(RetrieveAPIView):
     lookup_field = 'id'
     lookup_url_kwarg = 'vehicle_id'
     queryset = Vehicle.objects.all()
-    
+
+class VehicleState(RetrieveAPIView):
+    serializer_class = VehicleStateSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'vehicle_id'
+    queryset = Vehicle.objects.all()
