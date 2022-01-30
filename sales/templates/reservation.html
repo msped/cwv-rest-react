@@ -1,0 +1,24 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+    </tr>
+    <tr>
+        <td>{{ content.name }}</td>
+        <td>{{ content.email }}</td>
+        <td>{{ content.phone_number }}</td>
+    </tr>
+</table>
+
+{% if content.make or content.model or content.trim %}
+<hr /> 
+
+<h3 style="margin-top: 15px;">Trade-in</h3>
+<p>Make: {{ content.make }}</p>
+<p>Model: {{ content.model }}</p>
+<p>Trim: {{ content.trim }}</p>
+<p>Year: {{ content.year }}</p>
+<p>Mileage: {{ content.mileage }}</p>
+<p>Comments: <br /> {{ content.comments }}</p>
+{% endif %}
