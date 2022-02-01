@@ -49,6 +49,9 @@ class Vehicle(models.Model):
     extras = models.TextField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
 
+    class Meta:
+        ordering = ['-id']
+
     def __str__(self):
         return f'{self.id} {self.make} {self.model} {self.trim} - £{self.price}'
 
