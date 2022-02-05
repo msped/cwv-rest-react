@@ -5,10 +5,10 @@ class VehicleImagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = VehicleImages
         fields = [
-            'id',
-            'vehicle',
-            'image',
-            'is_main'
+            "id",
+            "vehicle",
+            "image",
+            "is_main"
         ]
 
 class VehicleSerializer(serializers.ModelSerializer):
@@ -34,29 +34,29 @@ class VehicleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vehicle
         fields = [
-            'id',
-            'slug',
-            'make',
-            'model',
-            'trim',
-            'year',
-            'fuel',
-            'body_type',
-            'car_state',
-            'reserved',
-            'mileage',
-            'engine_size',
-            'mot_expiry',
-            'extras',
-            'price',
-            'images'
+            "id",
+            "slug",
+            "make",
+            "model",
+            "trim",
+            "year",
+            "fuel",
+            "body_type",
+            "car_state",
+            "reserved",
+            "mileage",
+            "engine_size",
+            "mot_expiry",
+            "extras",
+            "price",
+            "images"
         ]
 
 class VehicleStateSerializer(serializers.ModelSerializer):
-    state = serializers.CharField(
-        source="get_car_state_display"
+    reserved = serializers.CharField(
+        source="get_reserved_display"
     )
 
     class Meta:
         model = Vehicle
-        fields = ['id', 'state']
+        fields = ["id", "reserved"]
