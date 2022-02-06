@@ -31,8 +31,8 @@ class VehicleState(RetrieveAPIView):
 class SendReservation(APIView):
     def post(self, request, vehicle_id):
         vehicle = get_object_or_404(Vehicle, id=vehicle_id)
-        # vehicle.reserved = "2"
-        # vehicle.save()
+        vehicle.reserved = "2"
+        vehicle.save()
         content = {
             "name": request.data["name"],
             "email": request.data["email"],
