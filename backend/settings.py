@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'phonenumber_field',
     'sales',
     'gallery',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -156,3 +158,7 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_USERNAME")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+PHONENUMBER_DB_FORMAT = "NATIONAL"
+PHONENUMBER_DEFAULT_REGION = "GB"
+PHONENUMBER_DEFAULT_FORMAT = "NATIONAL"
