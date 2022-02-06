@@ -15,6 +15,9 @@ class GalleryItem(models.Model):
     def __str__(self):
         return f'{self.id} {self.make} {self.model} {self.trim}'
 
+    class Meta:
+        ordering = ['-id']
+
 class GalleryImage(models.Model):
     """Image for galleryItem"""
     item = models.ForeignKey(GalleryItem, on_delete=models.CASCADE)
