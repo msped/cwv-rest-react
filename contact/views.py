@@ -35,11 +35,10 @@ class Contact(APIView):
                 recipient_list=[os.environ.get("EMAIL_USERNAME"),],
                 fail_silently=False
             )
-            return Response({"status": "Message sent"}, status=status.HTTP_200_OK)
+            return Response({"status": "Message sent."}, status=status.HTTP_200_OK)
         return Response(
             {
-                "status": "Message failed",
-                "errors": serializer.errors
+                "status": serializer.errors
             },
             status=status.HTTP_400_BAD_REQUEST
         )
