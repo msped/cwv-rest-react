@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'gallery',
     'contact',
     'business_admin',
+    'authentication',
     'django_cleanup.apps.CleanupConfig',
 ]
 
