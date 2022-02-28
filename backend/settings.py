@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'gallery',
     'contact',
     'business_admin',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
