@@ -62,7 +62,7 @@ def render_to_pdf(data):
 def invoice_handler(request):
     data = create_data_structure(request)
     pdf = render_to_pdf(data)
-    print(request)
+
     # if "print" in request:
     #     print("Printing")
     #     response = HttpResponse(pdf.getvalue(), content_type="application/pdf")
