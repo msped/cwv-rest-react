@@ -13,10 +13,9 @@ class TestAuthentication(APITestCase):
 
     def test_request_access_token(self):
         response = self.client.post(
-            '/api/auth/token',
+            '/api/auth/token/',
             {
                 'username': 'test',
-                'email': 'matt@mspe.me',
                 'password': '5up3R!98'
             }
         )
@@ -24,17 +23,16 @@ class TestAuthentication(APITestCase):
 
     def test_request_refresh_token(self):
         access_request = self.client.post(
-            '/api/auth/token',
+            '/api/auth/token/',
             {
                 'username': 'test',
-                'email': 'matt@mspe.me',
                 'password': '5up3R!98'
             },
             format='json'
         )
         refresh_token = access_request.data['refresh']
         response = self.client.post(
-            '/api/auth/token/refresh',
+            '/api/auth/token/refresh/',
             {
                 'refresh': refresh_token
             },
