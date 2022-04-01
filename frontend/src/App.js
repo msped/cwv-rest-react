@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import CssBaseline from '@mui/material/CssBaseline'
+import { ThemeProvider, responsiveFontSizes, createTheme } from '@mui/material/styles'
+import {
+  Route,
+  Routes 
+} from 'react-router-dom'
+import Header from './components/Header'
+
+let theme = createTheme({
+  palette: {
+    type: 'dark',
+    primary: {
+      main: '#1f1e1e',
+    },
+    secondary: {
+      main: '#6a7fdb',
+    },
+    error: {
+      main: '#ed474a',
+    },
+    success: {
+      main: '#2d936c',
+    },
+  },
+  props: {
+    MuiAppBar: {
+      color: 'secondary',
+    },
+  },
+})
+
+theme = responsiveFontSizes(theme)
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header />
+      {/*<Routes>
+      <Route />
+      </Routes>*/}
+    </ThemeProvider>
   );
 }
 
