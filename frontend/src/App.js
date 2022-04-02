@@ -24,7 +24,7 @@ let theme = createTheme({
   },
   props: {
     MuiAppBar: {
-      color: 'secondary',
+      color: 'primary',
     },
   },
 })
@@ -36,9 +36,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
-      {/*<Routes>
-      <Route />
-      </Routes>*/}
+      {/* <Routes>
+        <Route />
+      </Routes> */}
     </ThemeProvider>
   );
 }
