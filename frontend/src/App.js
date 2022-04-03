@@ -4,11 +4,13 @@ import {
   Route,
   Routes 
 } from 'react-router-dom'
+
 import Header from './components/Header'
+import Sales from './pages/Sales'
 
 let theme = createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#1f1e1e',
     },
@@ -36,9 +38,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
-      {/* <Routes>
-        <Route />
-      </Routes> */}
+      <Routes>
+        <Route path="/buy" element={<Sales />}/>
+      </Routes>
     </ThemeProvider>
   );
 }
