@@ -7,35 +7,11 @@ import {
 
 import Header from './components/Header'
 import Sales from './pages/Sales'
-
-let theme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#1f1e1e',
-    },
-    secondary: {
-      main: '#6a7fdb',
-    },
-    error: {
-      main: '#ed474a',
-    },
-    success: {
-      main: '#2d936c',
-    },
-  },
-  props: {
-    MuiAppBar: {
-      color: 'primary',
-    },
-  },
-})
-
-theme = responsiveFontSizes(theme)
+import CustomTheme from './theme'
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={CustomTheme()}>
       <CssBaseline />
       <Header />
       <Routes>
