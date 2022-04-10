@@ -1,6 +1,7 @@
 import os
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
+from django.db.models import Q
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from rest_framework.generics import ListAPIView, RetrieveAPIView
@@ -14,7 +15,7 @@ from .serializers import VehicleSerializer, VehicleStateSerializer
 
 class ListVehicles(ListAPIView):
     serializer_class = VehicleSerializer
-    queryset = Vehicle.objects.all()
+    queryset = Vehicle.objects.filter(Q(reserved='1') | Q(reserved='2'))
 
 class VehicleDetail(RetrieveAPIView):
     serializer_class = VehicleSerializer
