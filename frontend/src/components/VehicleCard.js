@@ -8,6 +8,7 @@ import {
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import TextTruncate from 'react-text-truncate'
+import LazyLoad from 'react-lazyload';
 
 export default function VehicleCard({ vehicle }) {
     return (
@@ -24,18 +25,22 @@ export default function VehicleCard({ vehicle }) {
                             {vehicle.images.map((item) => {
                                 if (item.is_main){
                                     return (
-                                        <img
-                                            key={item.image}
-                                            className="" 
-                                            src={item.image}
-                                            alt={`${vehicle.make} ${vehicle.model} ${vehicle.trim}`}
-                                            width='150'
-                                            height='150'
-                                            style={{
-                                                width: '100%',
-                                                height: "auto"
-                                            }}
-                                        />
+                                        <LazyLoad height={150}>
+                                            <img
+                                                key={item.image}
+                                                className="" 
+                                                src={item.image}
+                                                alt={`${vehicle.make} ${vehicle.model} ${vehicle.trim}`}
+                                                width='150'
+                                                height='150'
+                                                style={{
+                                                    width: '100%',
+                                                    maxHeight: "100%",
+                                                    objectFit: 'contain'
+                                                    
+                                                }}
+                                            />
+                                        </LazyLoad>
                                     )
                                 }
                             })}
