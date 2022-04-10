@@ -25,10 +25,8 @@ export default function VehicleCard({ vehicle }) {
                             {vehicle.images.map((item) => {
                                 if (item.is_main){
                                     return (
-                                        <LazyLoad height={150}>
+                                        <LazyLoad height={150} key={item.image}>
                                             <img
-                                                key={item.image}
-                                                className="" 
                                                 src={item.image}
                                                 alt={`${vehicle.make} ${vehicle.model} ${vehicle.trim}`}
                                                 width='150'
