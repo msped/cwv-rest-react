@@ -9,12 +9,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Vehicle
-from .serializers import VehicleSerializer, VehicleStateSerializer
+from .serializers import VehicleSerializerList, VehicleSerializer, VehicleStateSerializer
 
 # Create your views here.
 
 class ListVehicles(ListAPIView):
-    serializer_class = VehicleSerializer
+    serializer_class = VehicleSerializerList
     queryset = Vehicle.objects.filter(Q(reserved='1') | Q(reserved='2'))
 
 class VehicleDetail(RetrieveAPIView):
