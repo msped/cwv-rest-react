@@ -103,7 +103,7 @@ export default function Header() {
                     <Button
                         key={page.name}
                         href={page.url}
-                        sx={{ my: 2, color: 'white', display: 'block' }}
+                        sx={{ my: 2, color: 'white', display: 'block', textAlign: 'center' }}
                     >
                         {page.name}
                     </Button>
