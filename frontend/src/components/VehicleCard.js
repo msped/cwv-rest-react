@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom'
 import TextTruncate from 'react-text-truncate'
 import LazyLoad from 'react-lazyload';
 
+import defaultImage from '../images/defaultImage.jpg'
+
 export default function VehicleCard({ vehicle }) {
     return (
         <Card>
@@ -22,26 +24,34 @@ export default function VehicleCard({ vehicle }) {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={3}>
-                            {vehicle.images.map((item) => {
-                                if (item.is_main){
-                                    return (
-                                        <LazyLoad height={150} key={item.image}>
-                                            <img
-                                                src={item.image}
-                                                alt={`${vehicle.make} ${vehicle.model} ${vehicle.trim}`}
-                                                width='150'
-                                                height='150'
-                                                style={{
-                                                    width: '100%',
-                                                    maxHeight: "100%",
-                                                    objectFit: 'contain'
-                                                    
-                                                }}
-                                            />
-                                        </LazyLoad>
-                                    )
-                                }
-                            })}
+                            { vehicle.images.length === 0 ? 
+                                <LazyLoad>
+                                    <img 
+                                        src={defaultImage}
+                                        alt="No image"
+                                        width='150'
+                                        height='150'
+                                        style={{
+                                            width: '100%',
+                                            maxHeight: "100%"
+                                        }}
+                                    />
+                                </LazyLoad>
+                                :
+                                <LazyLoad height={150} key={vehicle.images.id}>
+                                    <img
+                                        src={vehicle.images.image}
+                                        alt={`${vehicle.make} ${vehicle.model} ${vehicle.trim}`}
+                                        width='150'
+                                        height='150'
+                                        style={{
+                                            width: '100%',
+                                            maxHeight: "100%",
+                                            objectFit: 'contain' 
+                                        }}
+                                    />
+                                </LazyLoad>
+                            }
                         </Grid>
                         <Grid item xs={12} sm={9}>
                             <Grid container spacing={1}>
