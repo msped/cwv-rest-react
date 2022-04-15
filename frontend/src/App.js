@@ -7,6 +7,7 @@ import {
 
 import Header from './components/Header'
 import Sales from './pages/Sales'
+import SaleDetail from './pages/SaleDetail'
 import CustomTheme from './theme'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/buy" element={<Sales />}/>
+        <Route path="/buy/:slug" element={<SaleDetail />}/>
       </Routes>
     </ThemeProvider>
   );
