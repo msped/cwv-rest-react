@@ -19,8 +19,8 @@ class ListVehicles(ListAPIView):
 
 class VehicleDetail(RetrieveAPIView):
     serializer_class = VehicleSerializer
-    lookup_field = "id"
-    lookup_url_kwarg = "vehicle_id"
+    lookup_field = "slug"
+    lookup_url_kwarg = "slug"
     queryset = Vehicle.objects.all()
 
 class VehicleState(RetrieveAPIView):
