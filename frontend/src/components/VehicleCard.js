@@ -28,7 +28,7 @@ export default function VehicleCard({ vehicle }) {
                                 <LazyLoad>
                                     <img 
                                         src={defaultImage}
-                                        alt="No image"
+                                        alt="Default"
                                         width='150'
                                         height='150'
                                         style={{
