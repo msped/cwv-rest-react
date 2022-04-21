@@ -1,6 +1,7 @@
 import os
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
+from django.db.models import Q
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from rest_framework.generics import ListAPIView, RetrieveAPIView
@@ -8,18 +9,18 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Vehicle
-from .serializers import VehicleSerializer, VehicleStateSerializer
+from .serializers import VehicleSerializerList, VehicleSerializer, VehicleStateSerializer
 
 # Create your views here.
 
 class ListVehicles(ListAPIView):
-    serializer_class = VehicleSerializer
-    queryset = Vehicle.objects.all()
+    serializer_class = VehicleSerializerList
+    queryset = Vehicle.objects.filter(Q(reserved='1') | Q(reserved='2'))
 
 class VehicleDetail(RetrieveAPIView):
     serializer_class = VehicleSerializer
-    lookup_field = "id"
-    lookup_url_kwarg = "vehicle_id"
+    lookup_field = "slug"
+    lookup_url_kwarg = "slug"
     queryset = Vehicle.objects.all()
 
 class VehicleState(RetrieveAPIView):
