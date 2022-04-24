@@ -5,7 +5,7 @@ import {
     Box,
 } from '@mui/material'
 import { useParams } from 'react-router-dom'
-import DetailCard from '../components/DetailCard'
+import VehicleDetailCard from '../components/VehicleDetailCard'
 import GoBack from '../components/GoBack'
 
 export default function SaleDetail() {
@@ -30,7 +30,7 @@ export default function SaleDetail() {
                 :
                 <Box sx={{ marginY: 5 }}>
                     <GoBack />
-                    <DetailCard vehicle={response}/>
+                    <VehicleDetailCard vehicle={response}/>
                 </Box>
             }
         </Container>
