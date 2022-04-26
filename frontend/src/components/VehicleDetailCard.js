@@ -7,11 +7,11 @@ import {
     CardContent,
 } from '@mui/material'
 import moment from 'moment'
-import ImageCarousel from '../components/ImageCarousel'
+import ImageCarousel from './ImageCarousel'
 import Reserve from './Reserve'
 import { Box } from '@mui/system'
 
-export default function DetailCard({ vehicle }) {
+export default function VehicleDetailCard({ vehicle }) {
 
     let newExtraText = vehicle.extras.split('\n').map(
         (item, i) => <p key={i}>{item}</p>)

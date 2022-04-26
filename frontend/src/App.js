@@ -8,6 +8,9 @@ import {
 import Header from './components/Header'
 import Sales from './pages/Sales'
 import SaleDetail from './pages/SaleDetail'
+import GalleryDetail from './pages/GalleryDetail'
+import Gallery from './pages/Gallery'
+
 import CustomTheme from './theme'
 
 function App() {
@@ -18,6 +21,8 @@ function App() {
       <Routes>
         <Route path="/buy" element={<Sales />}/>
         <Route path="/buy/:slug" element={<SaleDetail />}/>
+        <Route path="/gallery" element={<Gallery />}/>
+        <Route path="/gallery/:slug" element={<GalleryDetail />}/>
       </Routes>
     </ThemeProvider>
   );

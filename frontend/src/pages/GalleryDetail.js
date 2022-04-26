@@ -5,9 +5,9 @@ import {
     Box,
 } from '@mui/material'
 import { useParams } from 'react-router-dom'
-import VehicleDetailCard from '../components/VehicleDetailCard'
+import GalleryDetailCard from '../components/GalleryDetailCard'
 import GoBack from '../components/GoBack'
-import SaleDetailSkeleton from '../components/SaleDetailSkeleton'
+import GalleryDetailSkeleton from '../components/GalleryDetailSkeleton'
 
 export default function SaleDetail() {
     const [response, setResponse] = useState([])
@@ -17,7 +17,7 @@ export default function SaleDetail() {
 
     useEffect(() => {
         const search = async () => {
-            const { data } = await Api.get(`/sales/${slug}/`)
+            const { data } = await Api.get(`/gallery/${slug}/`)
             setResponse(data)
             setLoading(false)
         }
@@ -28,11 +28,11 @@ export default function SaleDetail() {
         <Container maxWidth="lg">
             <Box sx={{ marginY: 5 }}>
             {loading ?
-                <SaleDetailSkeleton />
+                <GalleryDetailSkeleton />
                 :
                 <div>
                     <GoBack />
-                    <VehicleDetailCard vehicle={response}/>
+                    <GalleryDetailCard vehicle={response}/>
                 </div>
             }
             </Box>
