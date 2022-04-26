@@ -7,6 +7,7 @@ import {
 import { useParams } from 'react-router-dom'
 import VehicleDetailCard from '../components/VehicleDetailCard'
 import GoBack from '../components/GoBack'
+import SaleDetailSkeleton from '../components/SaleDetailSkeleton'
 
 export default function SaleDetail() {
     const [response, setResponse] = useState([])
@@ -25,14 +26,16 @@ export default function SaleDetail() {
 
     return (
         <Container maxWidth="lg">
+            <Box sx={{ marginY: 5 }}>
             {loading ?
-                <div>loading..</div>
+                <SaleDetailSkeleton />
                 :
-                <Box sx={{ marginY: 5 }}>
+                <div>
                     <GoBack />
                     <VehicleDetailCard vehicle={response}/>
-                </Box>
+                </div>
             }
+            </Box>
         </Container>
     )
 }
